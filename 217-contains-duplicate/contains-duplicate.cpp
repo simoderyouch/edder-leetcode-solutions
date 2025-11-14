@@ -1,16 +1,15 @@
+#include <unordered_set>
+
 class Solution {
 public:
-    bool containsDuplicate(vector<int>& nums) {
-        
+    bool containsDuplicate(std::vector<int>& nums) {
+        std::unordered_set<int> seen;
 
-        unordered_map<int, int> element_counts;
         for (int num : nums) {
-
-            element_counts[num]++;
-            if (element_counts[num] > 1) {
-  
-            return true;
-         }
+    
+            if (!seen.insert(num).second) {
+                return true; 
+            }
         }
         return false;
     }
