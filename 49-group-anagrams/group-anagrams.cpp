@@ -3,15 +3,12 @@ public:
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
 
 
-        unordered_map<string, vector<string>> res;
+    unordered_map<string, vector<string>> res;
 
     for (const auto& s : strs) {
 
         int charCounts[26] = {0};
 
-        cout << "Processing string: " << s << endl;
-
-        // Count letters
         for (char c : s) {
             charCounts[c - 'a']++;
            
@@ -19,7 +16,7 @@ public:
 
         string key;
         for (int i = 0; i < 26; i++) {
-            key += to_string(charCounts[i]) + "#";
+            key += to_string(charCounts[i]) + ",";
         }
 
 
